@@ -1,6 +1,5 @@
 	
     @mixin from-to-with-between($cssProperty, $fromValue, $toValue, $fromMq: 320px, $toMq: 1440px) {
-        
         #{$cssProperty}: $fromValue;
 
         @media ( min-width: $fromMq ) {
@@ -67,7 +66,7 @@
     }
 
     .wysiwyg-content {
-        @include from-to-with-between( 'font-size', 16px * .666, 16px );
+        font-size: 16px;
 
         > * {
             & + * {

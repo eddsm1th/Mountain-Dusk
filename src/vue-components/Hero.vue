@@ -81,6 +81,7 @@
             width: 100%;
             background-color: map-get($colours, 'black');
             display: flex;
+            flex-wrap: wrap;
 
             @media ( min-width: 768px ) {
                 width: 50%;
@@ -88,15 +89,15 @@
         }
 
         &__cta {
-            width: 50%;
+            width: 100%;
 
-            @media ( min-width: 768px ) {
-                width: $cta_dimension * 1.4;
+            @media ( min-width: 580px ) {
+                width: 50%;
             }
             
             a {
                 @include from-to-with-between( 'padding', 20px, 40px );
-                @include from-to-with-between( 'height', $cta_dimension * .666, $cta_dimension );
+                @include from-to-with-between( 'height', $cta_dimension * .5, $cta_dimension );
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -109,7 +110,6 @@
                 }
 
                 > span {
-                    margin-bottom: 20px;
                     margin-bottom: auto;
                 }
 

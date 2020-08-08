@@ -13,12 +13,14 @@
                     </div>
                 </div>
                 <div class="showcase__image">
-                    <img src="http://via.placeholder.com/240x420.png">
+                    <img src="http://via.placeholder.com/280x420.png">
                 </div>
                 <div class="showcase__content">
                     <div>
-                        <h3 class="showcase__title fs-xl fw-bold">{{ current_item.name }}</h3>
-                        <h4 class="showcase__sub-title fs-l fw-bold">{{ current_item.short_description }}</h4>
+                        <div class="showcase__content-upper">
+                            <h3 class="showcase__title fs-xl fw-bold">{{ current_item.name }}</h3>
+                            <h4 class="showcase__sub-title fs-l fw-bold">{{ current_item.short_description }}</h4>
+                        </div>
                         <div class="showcase__body-content wysiwyg-content" v-html="current_item.description"></div>
                     </div>
                 </div>
@@ -33,10 +35,6 @@
         name: 'showcase',
 
         props: {
-        },
-
-        methods: {
-
         },
 
         data () {
@@ -103,6 +101,7 @@
 
     .showcase {
         background-color: white;
+        overflow: hidden;
 
         &__inner-wrap {
             min-height: 100vh;
@@ -124,6 +123,7 @@
             > span {
                 line-height: 1;
                 margin-right: 8px;
+                width: 1.2em;
             }
         }
 
@@ -158,18 +158,31 @@
 
         &__main {
             display: flex;
+            flex-wrap: wrap;
             position: relative;
         }
 
         &__image {
-            width: 35%;
+            width: 100%;
             position: relative;
+            max-width: 320px;
+            padding-right: 40px;
+
+            @media ( min-width: 580px ) {
+                padding-right: 80px;
+            }
+
+            @media ( min-width: 940px ) {
+                padding-right: 0;
+                width: 35%;
+            }
 
             > img {
                 // position: relative;
                 top: 0;
                 left: 0;
                 width: 100%;
+                display: block;
             }
 
             .transition-out & {
@@ -181,10 +194,38 @@
         }
 
         &__content {
-            width: 65%;
-            padding: 40px 0 40px 80px;
+            width: 100%;
+            padding: 20px 0 20px 40px;
             display: flex;
             align-items: center;
+            position: relative;
+
+            @media ( min-width: 580px ) {
+                padding: 20px 0 20px 80px;
+            }
+
+            @media ( min-width: 940px ) {
+                width: 65%;
+                padding: 40px 40px 40px 40px;
+            }
+
+            @media ( min-width: 1024px ) {
+                padding: 40px 40px 40px 80px;
+            }
+        }
+
+        &__content-upper {
+            position: absolute;
+            bottom: 100%;
+            left: 40px;
+
+            @media ( min-width: 580px ) {
+                left: 80px;
+            }
+
+            @media ( min-width: 940px ) {
+                position: static;
+            }
         }
 
         &__title {
@@ -199,8 +240,12 @@
         }
 
         &__sub-title {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             animation-delay: .2s;
+
+            @media ( min-width: 940px ) {
+                margin-bottom: 40px;
+            }
 
             .transition-out & {
                 @include transition-out();

@@ -1,7 +1,7 @@
 <template>
     <main>
 
-        <navbar :nav_items="nav_items" :social_items="social_items"></navbar>
+        <overlay></overlay>
 
         <hero></hero>
 
@@ -14,7 +14,7 @@
 
 <script>
 
-    import Navbar from './vue-components/Navbar.vue';
+    import Overlay from './vue-components/Overlay.vue';
     import Hero from './vue-components/Hero.vue';
     import About from './vue-components/About.vue';
     import Showcase from './vue-components/Showcase.vue';
@@ -23,56 +23,14 @@
         name: 'app',
 
         components: {
-            Navbar,
+            Overlay,
             Hero,
             About,
             Showcase
         },
 
-        methods: {
-
-        },
-
         data () {
             return {
-                nav_items: [
-                    {
-                        'name' : 'Home',
-                        'url' : 'home',
-                        'active' : true,
-                    },
-                    {
-                        'name' : 'Who are we',
-                        'component_name' : 'WhoWeAre',
-                        'url' : 'who-are-we',
-                        'active' : false,
-                    },
-                    {
-                        'name' : 'Philosophy',
-                        'url' : 'philosophy',
-                        'active' : false,
-                    },
-                    {
-                        'name' : 'Contact',
-                        'url' : 'Contact',
-                        'active' : false,
-                    },
-
-                ],
-                social_items: [
-                    {
-                        'name' : 'instagram',
-                        'url' : '#'
-                    },
-                    {
-                        'name' : 'twitter',
-                        'url' : ''
-                    },
-                    {
-                        'name' : 'facebook',
-                        'url' : '#'
-                    }
-                ]
             }
         }
     };
