@@ -1,7 +1,7 @@
 <template>
     <main>
 
-        <splashscreen></splashscreen>
+        <!-- <splashscreen></splashscreen> -->
 
         <overlay></overlay>
 

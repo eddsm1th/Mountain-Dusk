@@ -35,7 +35,8 @@
         's' : 16px,
         'm' : 18px,
         'l' : 24px,
-        'xl' : 48px
+        'xl' : 48px,
+        'xxl' : 72px,
     );
 
     @each $key, $size in $font-sizes {
@@ -66,7 +67,9 @@
     }
 
     .wysiwyg-content {
-        font-size: 16px;
+        font-size: 18px;
+        line-height: 1.6;
+
 
         > * {
             & + * {

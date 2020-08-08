@@ -1,27 +1,29 @@
 <template>
     <section class="showcase" :class="transition_class">
-        <div class="showcase__inner-wrap section-wrap section-wrap--narrow">
+        <div class="section-wrap">
+            <div class="showcase__inner-wrap">
 
-            <div class="showcase__main">
-                <div class="showcase__utils">
-                    <div class="showcase__slide-indicator fs-s fw-bold">
-                        <span class="fs-xl fw-bold">{{ normalised_current_item_index }}</span> / {{ normalised_item_length }}
-                    </div>
-                    <div class="showcase__controls" :class="{ 'disabled' : !can_transition }">
-                        <span class="showcase__control showcase__control--prev" @click="cycle_active_item( -1 )"></span>
-                        <span class="showcase__control" @click="cycle_active_item()"></span>
-                    </div>
-                </div>
-                <div class="showcase__image">
-                    <img :src="current_item.image_url">
-                </div>
-                <div class="showcase__content">
-                    <div>
-                        <div class="showcase__content-upper">
-                            <h3 class="showcase__title fs-xl fw-bold">{{ current_item.name }}</h3>
-                            <h4 class="showcase__sub-title fs-l fw-bold">{{ current_item.short_description }}</h4>
+                <div class="showcase__main">
+                    <div class="showcase__utils">
+                        <div class="showcase__slide-indicator fs-s fw-bold">
+                            <span class="fs-xl fw-bold">{{ normalised_current_item_index }}</span> / {{ normalised_item_length }}
                         </div>
-                        <div class="showcase__body-content wysiwyg-content" v-html="current_item.description"></div>
+                        <div class="showcase__controls" :class="{ 'disabled' : !can_transition }">
+                            <span class="showcase__control showcase__control--prev" @click="cycle_active_item( -1 )"></span>
+                            <span class="showcase__control" @click="cycle_active_item()"></span>
+                        </div>
+                    </div>
+                    <div class="showcase__image">
+                        <img :src="current_item.image_url">
+                    </div>
+                    <div class="showcase__content">
+                        <div>
+                            <div class="showcase__content-upper">
+                                <h3 class="showcase__title fs-xl fw-bold">{{ current_item.name }}</h3>
+                                <h4 class="showcase__sub-title fs-l fw-bold">{{ current_item.short_description }}</h4>
+                            </div>
+                            <div class="showcase__body-content wysiwyg-content" v-html="current_item.description"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -46,7 +48,7 @@
                     {
                         'name' : 'Mountain Dusk',
                         'short_description' : 'Japanese Inspired Lager',
-                        'description' : `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non.</p>`,
+                        'description' : `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum.</p>`,
                         'image_url' : 'http://via.placeholder.com/280x420.png?text=Mountain+Dusk'
                     }
                 ],
