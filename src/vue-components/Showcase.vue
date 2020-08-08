@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="showcase__image">
-                    <img src="http://via.placeholder.com/280x420.png">
+                    <img :src="current_item.image_url">
                 </div>
                 <div class="showcase__content">
                     <div>
@@ -34,25 +34,29 @@
     export default {
         name: 'showcase',
 
-        props: {
-        },
-
         data () {
             return {
                 brews: [
                     {
                         'name' : 'Golden Meadow',
                         'short_description' : 'German Inspired Lager',
-                        'description' : `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non.</p>`
+                        'description' : `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non.</p>`,
+                        'image_url' : 'http://via.placeholder.com/280x420.png?text=Golden+Meadow'
                     },
                     {
                         'name' : 'Mountain Dusk',
                         'short_description' : 'Japanese Inspired Lager',
-                        'description' : `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non.</p>`
+                        'description' : `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas cursus nulla ac viverra congue. Maecenas vulputate erat ipsum, in eleifend risus sodales non.</p>`,
+                        'image_url' : 'http://via.placeholder.com/280x420.png?text=Mountain+Dusk'
                     }
                 ],
                 active_item: 1,
                 transition_class: '',
+                transition_classes: {
+                    out: 'transition-out',
+                    in: 'transition-in',
+                    idle: ''
+                },
                 can_transition: true,
             }
         },
@@ -74,7 +78,7 @@
         methods: {
             cycle_active_item ( difference = 1 ) {
                 if ( this.can_transition ) { 
-                    this.transition_class = 'transition-out';
+                    this.transition_class = this.transition_classes.out;
                     this.can_transition = false;
 
                     setTimeout( function () {
@@ -83,11 +87,11 @@
                         if ( this.active_item < 1 ) this.active_item = this.brews.length;
                         if ( this.active_item > this.brews.length ) this.active_item = 1;
 
-                        this.transition_class = 'transition-in';
+                        this.transition_class = this.transition_classes.in;
 
                         setTimeout( function () {
                             this.can_transition = true;
-                            this.transition_class = '';
+                            this.transition_class = this.transition_classes.idle;
                         }.bind( this ), 800 );
                     }.bind( this ), 1000 );
                 }

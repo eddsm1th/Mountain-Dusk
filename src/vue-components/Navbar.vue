@@ -5,7 +5,7 @@
                 :class="{ 'active' : nav_item.active }"
                 @click="set_active_nav_item( nav_item )"
             >
-                <a href="#">{{ nav_item.name }}</a>
+                <a :href="'#' + nav_item.url">{{ nav_item.name }}</a>
             </li>
         </ul>
 </template>
@@ -25,13 +25,12 @@
                     },
                     {
                         'name' : 'Who are we',
-                        'component_name' : 'WhoWeAre',
-                        'url' : 'who-are-we',
+                        'url' : 'about',
                         'active' : false,
                     },
                     {
-                        'name' : 'Philosophy',
-                        'url' : 'philosophy',
+                        'name' : 'Our Brews',
+                        'url' : 'showcase',
                         'active' : false,
                     },
                     {

@@ -1,6 +1,8 @@
 <template>
     <main>
 
+        <splashscreen></splashscreen>
+
         <overlay></overlay>
 
         <hero></hero>
@@ -18,6 +20,7 @@
     import Hero from './vue-components/Hero.vue';
     import About from './vue-components/About.vue';
     import Showcase from './vue-components/Showcase.vue';
+    import Splashscreen from './vue-components/Splashscreen.vue';
 
     export default {
         name: 'app',
@@ -26,7 +29,8 @@
             Overlay,
             Hero,
             About,
-            Showcase
+            Showcase,
+            Splashscreen
         },
 
         data () {

@@ -31,13 +31,6 @@
     export default {
         name: 'hero',
 
-        props: {
-        },
-
-        methods: {
-
-        },
-
         data () {
             return {
                 heading: 'Lomas<br>Brewing.',

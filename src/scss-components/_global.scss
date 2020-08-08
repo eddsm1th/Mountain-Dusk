@@ -78,7 +78,7 @@
     @mixin transition-out () {
         animation-name: transition-out;
         animation-fill-mode: forwards;
-        animation-timing-function: ease-in;
+        animation-timing-function: cubic-bezier(.6,.02,.68,.3);
         animation-iteration-count: 1;
         animation-duration: .3s;
 
@@ -98,7 +98,7 @@
         clip-path: inset( 0 100% 0 0 );
         animation-name: transition-in;
         animation-fill-mode: forwards;
-        animation-timing-function: ease-out;
+        animation-timing-function: cubic-bezier(.43,.72,.48,.98);
         animation-iteration-count: 1;
         animation-duration: .3s;
 

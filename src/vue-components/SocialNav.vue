@@ -1,7 +1,7 @@
 <template>
     <ul class="social-nav">
         <li class="social-nav__item" v-for="social_item in social_items">
-            <a :href="social_item.url">
+            <a :href="social_item.url" target="_blank" rel="noopener">
                 <i class="fab" :class="'fa-' + social_item.name"></i>
             </a>
         </li>
